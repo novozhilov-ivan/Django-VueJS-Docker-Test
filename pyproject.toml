@@ -1,3 +1,36 @@
+[tool.black]
+target-version = ["py312"]
+line-length = 85
+
+[tool.isort]
+lines_between_types = 1
+combine_as_imports = true
+sections = [
+    "FUTURE",
+    "STDLIB",
+    "FIRSTPARTY",
+    "THIRDPARTY",
+    "AIRFLOW",
+    "LOCALFOLDER",
+]
+known_airflow = ["airflow"]
+lines_after_imports = 2
+multi_line_output = 3
+use_parentheses = true
+extra_standard_library = ["typing_extensions"]
+known_third_party = [
+    "pydantic-settings",
+]
+known_local_folder = [
+    "src",
+    "tests",
+]
+src_paths = ["."]
+line_length = 85
+include_trailing_comma = true
+split_on_trailing_comma = true
+skip = [".gitignore"]
+
 [tool.poetry]
 name = "parity-test"
 version = "0.1.0"
@@ -7,6 +40,8 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
+black = "^24.10.0"
+isort = "^5.13.2"
 
 
 [build-system]
