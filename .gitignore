@@ -1,3 +1,6 @@
 .env
 .idea/
+*venv/
+__pycache__/
+*.sqlite
 core/project/settings/local.py
