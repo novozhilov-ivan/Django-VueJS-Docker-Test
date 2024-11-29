@@ -22,8 +22,7 @@ known_third_party = [
     "pydantic-settings",
 ]
 known_local_folder = [
-    "src",
-    "tests",
+    "core",
 ]
 src_paths = ["."]
 line_length = 85
@@ -41,7 +40,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 djangorestframework = "^3.15.2"
-psycopg2 = "^2.9.10"
+pydantic-settings = "^2.6.1"
+psycopg2-binary = "^2.9.10"
 
 
 [tool.poetry.group.dev.dependencies]
