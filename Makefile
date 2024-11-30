@@ -24,5 +24,7 @@ sh:
 	docker exec -it images-app bash
 migrate:
 	docker exec -it images-app python manage.py migrate
+migrations:
+	docker exec -it images-app python manage.py makemigrations
 superuser:
 	docker exec -it images-app python manage.py createsuperuser
