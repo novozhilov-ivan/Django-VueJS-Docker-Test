@@ -13,4 +13,5 @@ class Settings(PostgresSettings, DjangoSettings):
         extra="ignore",
     )
 
+
 settings = Settings()
