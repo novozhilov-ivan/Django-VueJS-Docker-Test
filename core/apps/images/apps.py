@@ -3,4 +3,5 @@ from django.apps import AppConfig
 
 class ImagesConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "images"
+    name = "core.apps.images"
+    verbose_name = "Изображения"
