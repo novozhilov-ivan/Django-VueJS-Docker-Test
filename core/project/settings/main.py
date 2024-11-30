@@ -14,6 +14,7 @@ from pathlib import Path
 
 from core.project.settings.configs import settings
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -39,6 +40,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # first party
+    "core.apps.images.apps.ImagesConfig",
 ]
 
 MIDDLEWARE = [
@@ -76,13 +79,13 @@ WSGI_APPLICATION = "core.project.wsgi.application"
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': settings.postgres_db,
-        'USER': settings.postgres_user,
-        'PASSWORD': settings.postgres_password,
-        'HOST': settings.postgres_host,
-        'PORT': settings.postgres_port,
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": settings.postgres_db,
+        "USER": settings.postgres_user,
+        "PASSWORD": settings.postgres_password,
+        "HOST": settings.postgres_host,
+        "PORT": settings.postgres_port,
     },
 }
 
