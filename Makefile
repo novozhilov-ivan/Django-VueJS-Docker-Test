@@ -16,6 +16,10 @@ up-all: build up-postgres up-pgadmin
 	docker compose -f app.yml -f postgres.yml up -d
 unit: up
 	docker compose -f app.yml -f postgres.yml run --rm --entrypoint="pytest tests/unit" images-app
+e2e: up
+	docker compose -f app.yml -f postgres.yml run --rm --entrypoint="pytest tests/e2e" images-app
+all: up
+	docker compose -f app.yml -f postgres.yml run --rm --entrypoint="pytest" images-app
 down:
 	docker compose -f app.yml -f postgres.yml down
 down-all:
