@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from typing import Iterable
 
 from core.apps.images.entities import ImageEntity
 from core.apps.images.exceptions import ImageNotFound
@@ -9,7 +8,7 @@ from core.apps.images.models import ORMImages
 class BaseImagesService(ABC):
     @staticmethod
     @abstractmethod
-    def get_image_list() -> Iterable[ImageEntity]:
+    def get_image_list() -> list[ImageEntity]:
         raise NotImplementedError
 
     @staticmethod
@@ -23,9 +22,9 @@ class BaseImagesService(ABC):
         raise NotImplementedError
 
 
-class ORMImagesService(ABC):
+class ORMImagesService(BaseImagesService):
     @staticmethod
-    def get_image_list() -> Iterable[ImageEntity]:
+    def get_image_list() -> list[ImageEntity]:
         query_set = ORMImages.objects.all()
         return [image.to_entity() for image in query_set]
 
