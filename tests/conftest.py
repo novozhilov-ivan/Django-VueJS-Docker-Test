@@ -7,6 +7,15 @@ from core.apps.images.enums import ImageExtension
 from core.apps.images.services import BaseImagesService, ORMImagesService
 
 
+def add_images_to_db(
+    images_service: BaseImagesService,
+    image_entity: ImageEntity,
+    image_count: int = 1,
+) -> None:
+    for i in range(image_count):
+        images_service.add_image(image_entity)
+
+
 @pytest.fixture(scope="session")
 def images_service() -> BaseImagesService:
     return ORMImagesService()
