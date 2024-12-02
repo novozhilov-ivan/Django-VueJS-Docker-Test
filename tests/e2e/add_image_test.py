@@ -1,13 +1,13 @@
 import pytest
 
-from django.test import Client
-from django.urls import reverse
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.reverse import reverse
+from rest_framework.test import APIClient
 
 
 @pytest.mark.django_db
-def test_add_correct_image(client: Client, image_data_use_case_dict: dict):
+def test_add_correct_image(client: APIClient, image_data_use_case_dict: dict):
     response: Response = client.post(
         path=reverse("add_image"),
         data=image_data_use_case_dict,
@@ -28,7 +28,7 @@ def test_add_correct_image(client: Client, image_data_use_case_dict: dict):
 )
 @pytest.mark.django_db
 def test_add_image_without_one_field(
-    client: Client,
+    client: APIClient,
     field: str,
     image_data_use_case_dict: dict,
 ):
@@ -46,7 +46,7 @@ def test_add_image_without_one_field(
 
 @pytest.mark.django_db
 def test_add_image_with_wrong_base64_payload(
-    client: Client,
+    client: APIClient,
     image_data_use_case_dict: dict,
 ):
     image_data_use_case_dict["base64_payload"] = "**"
