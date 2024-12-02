@@ -13,7 +13,7 @@ from core.project.containers import get_container
 
 
 @api_view(http_method_names=["POST"])
-def add_image_handler(request: Request):
+def add_image_handler(request: Request) -> Response:
     try:
         schema = AddImageRequestSchema(
             base64_payload=request.data.get("base64_payload"),
