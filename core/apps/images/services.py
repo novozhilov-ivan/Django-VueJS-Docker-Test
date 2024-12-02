@@ -1,7 +1,9 @@
 from abc import ABC, abstractmethod
 
 from core.apps.images.entities import ImageEntity
-from core.apps.images.exceptions import ImageNotFound
+from core.apps.images.exceptions import (
+    ImageNotFoundException,
+)
 from core.apps.images.models import ORMImages
 
 
@@ -31,7 +33,8 @@ class ORMImagesService(BaseImagesService):
     @staticmethod
     def add_image(image: ImageEntity) -> None:
         ORMImages.objects.create(
-            encoded_image=image.encoded_image,
+            base64_payload=image.base64_payload,
+            extension=image.extension,
             description=image.description,
         )
 
@@ -40,6 +43,6 @@ class ORMImagesService(BaseImagesService):
         try:
             image_to_remove = ORMImages.objects.get(id=image_id)
         except ORMImages.DoesNotExist:
-            raise ImageNotFound(image_id=image_id)
+            raise ImageNotFoundException(image_id=image_id)
 
         image_to_remove.delete()
