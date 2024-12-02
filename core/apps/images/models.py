@@ -4,7 +4,7 @@ from core.apps.common.models import TimedBaseModel
 from core.apps.images.entities import ImageEntity
 
 
-class Images(TimedBaseModel):
+class ORMImages(TimedBaseModel):
     encoded_image = models.TextField()
     description = models.CharField(max_length=255)
 
