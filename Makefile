@@ -14,6 +14,8 @@ up-pgadmin:
 	docker compose -f pgadmin.yml up -d --no-recreate
 up-all: build up-postgres up-pgadmin
 	docker compose -f app.yml -f postgres.yml up -d
+unit: up
+	docker compose -f app.yml -f postgres.yml run --rm --entrypoint="pytest tests/unit" images-app
 down:
 	docker compose -f app.yml -f postgres.yml down
 down-all:
