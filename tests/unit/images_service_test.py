@@ -1,18 +1,11 @@
+from tests.conftest import add_images_to_db
+
 import pytest
 
 from core.apps.images.entities import ImageEntity
 from core.apps.images.exceptions import ImageNotFoundException
 from core.apps.images.models import ORMImages
 from core.apps.images.services import BaseImagesService
-
-
-def add_images_to_db(
-    images_service: BaseImagesService,
-    image_entity: ImageEntity,
-    image_count: int = 1,
-) -> None:
-    for i in range(image_count):
-        images_service.add_image(image_entity)
 
 
 @pytest.mark.django_db
