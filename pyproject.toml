@@ -30,6 +30,9 @@ include_trailing_comma = true
 split_on_trailing_comma = true
 skip = [".gitignore"]
 
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "core.project.settings.local"
+
 [tool.poetry]
 name = "parity-test"
 version = "0.1.0"
@@ -47,6 +50,8 @@ psycopg2-binary = "^2.9.10"
 [tool.poetry.group.dev.dependencies]
 black = "^24.10.0"
 isort = "^5.13.2"
+pytest = "^8.3.4"
+pytest-django = "^4.9.0"
 
 [build-system]
 requires = ["poetry-core"]
