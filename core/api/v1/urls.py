@@ -1,8 +1,10 @@
 from django.urls import path
 
-from .images.add_image.handler import add_image_handler
-from .images.handlers.get_images import GetImageListAPIView
-from .images.handlers.remove_image import DeleteImageAPIView
+from .images.add_image.handlers import add_image_handler
+from .images.remove_images.handlers import DeleteImageAPIView
+from core.api.v1.images.get_images.handlers import (
+    get_images_handler,
+)
 
 
 urlpatterns = [
@@ -14,11 +16,11 @@ urlpatterns = [
     path(
         "image/",
         DeleteImageAPIView.as_view(),
-        name="Удалить изображение по id",
+        name="remove_image_by_id",
     ),
     path(
         "images/",
-        GetImageListAPIView.as_view(),
-        name="Получить список изображений",
+        get_images_handler,
+        name="get_images",
     ),
 ]
