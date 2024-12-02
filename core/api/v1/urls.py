@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .images.handlers.add_image import AddImageAPIView
+from .images.add_image.handler import add_image_handler
 from .images.handlers.get_images import GetImageListAPIView
 from .images.handlers.remove_image import DeleteImageAPIView
 
@@ -8,8 +8,8 @@ from .images.handlers.remove_image import DeleteImageAPIView
 urlpatterns = [
     path(
         "image/",
-        AddImageAPIView.as_view(),
-        name="Добавить новое изображение",
+        add_image_handler,
+        name="add_image",
     ),
     path(
         "image/",
