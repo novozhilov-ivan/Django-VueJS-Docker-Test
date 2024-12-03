@@ -12,11 +12,13 @@ up: build
 	docker compose -f app.yml -f postgres.yml up -d
 up-front: build-front
 	docker compose -f frontend.yml up -d
+up-all: build build-front
+	docker compose -f app.yml -f postgres.yml -f frontend.yml up -d
 up-postgres:
 	docker compose -f postgres.yml up -d
 up-pgadmin:
 	docker compose -f pgadmin.yml up -d --no-recreate
-up-all: build up-postgres up-pgadmin
+up-back: build up-postgres up-pgadmin
 	docker compose -f app.yml -f postgres.yml up -d
 unit: up
 	docker compose -f app.yml -f postgres.yml run --rm --entrypoint="pytest tests/unit" images-app
