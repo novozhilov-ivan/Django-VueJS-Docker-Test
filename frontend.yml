@@ -1,0 +1,18 @@
+networks:
+  backend:
+    driver: bridge
+
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: frontend-image
+    restart: always
+    networks:
+      - backend
+    environment:
+      DJANGO_PORT: ${DJANGO_PORT:?}
+    ports:
+      - "8080:80"
