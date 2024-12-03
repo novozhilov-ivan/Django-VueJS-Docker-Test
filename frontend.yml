@@ -12,6 +12,11 @@ services:
     restart: always
     networks:
       - backend
+    env_file:
+      - path: .env.example
+        required: false
+      - path: .env
+        required: false
     environment:
       DJANGO_PORT: ${DJANGO_PORT:?}
     ports:
