@@ -1,3 +1,5 @@
+from tests.conftest import add_images_to_db
+
 import pytest
 
 from rest_framework import status
@@ -7,12 +9,12 @@ from rest_framework.test import APIClient
 
 from core.apps.images.entities import ImageEntity
 from core.apps.images.services import BaseImagesService
-from tests.conftest import add_images_to_db
 
 
 @pytest.mark.django_db
 def test_remove_non_exist_image_by_id(client: APIClient):
     non_exist_image_id = 666
+
     response: Response = client.delete(
         path=reverse(
             viewname="remove_image_by_id",
@@ -20,7 +22,7 @@ def test_remove_non_exist_image_by_id(client: APIClient):
         ),
     )
 
-    assert response.status_code == status.HTTP_400_BAD_REQUEST
+    assert response.status_code == status.HTTP_404_NOT_FOUND
     assert response.data == "Image not found"
 
 

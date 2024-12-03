@@ -7,6 +7,6 @@ from core.api.v1.images.remove_images.handlers import remove_image_by_id_handler
 
 urlpatterns = [
     path("image/", add_image_handler, name="add_image"),
-    path("image/<int:id>/", remove_image_by_id_handler, name="remove_image_by_id"),
-    path("images/", get_images_handler, name="get_images"),
+    path("image/<int:id>", remove_image_by_id_handler, name="remove_image_by_id"),
+    path("images", get_images_handler, name="get_images"),
 ]

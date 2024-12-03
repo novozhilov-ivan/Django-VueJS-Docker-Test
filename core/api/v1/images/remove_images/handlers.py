@@ -26,7 +26,10 @@ def remove_image_by_id_handler(_: Request, id: int) -> Response:  # noqa
     try:
         image_service.remove_image_by_id(image_id=schema.id)
     except ApplicationException as exception:
-        return Response(data=exception.message, status=status.HTTP_400_BAD_REQUEST)
+        return Response(
+            data=exception.message,
+            status=status.HTTP_404_NOT_FOUND,
+        )
 
     return Response(
         data="Image successfully deleted",
