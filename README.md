@@ -1,5 +1,7 @@
 # Django-vuejs-test
 
+![alt text](task.jpg "Title")
+
 # Django Backend + DRF + Vue Frontend
 
 Этот проект объединяет Django для бэкенда и Vue.js для фронтенда. Все компоненты приложения контейнеризованы с использованием Docker Compose. Ниже представлены инструкции по настройке и запуску проекта.
