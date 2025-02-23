@@ -1,4 +1,4 @@
-# Django-vuejs-test
+# Django-VueJS-Docker-Test
 
 ![alt text](task.jpg "Title")
 
@@ -29,10 +29,10 @@
 
 Сначала клонируйте проект с GitHub и перейдите в папку проекта:  
 ```bash
-  git clone https://github.com/novozhilov-ivan/parity-django-vuejs-test.git
+  git clone https://github.com/novozhilov-ivan/Django-VueJS-Docker-Test
 ```
 ```bash
-  cd parity-django-vuejs-test
+  cd Django-VueJS-Docker-Test
 ```
 
 ## Подготовка перед запуском
